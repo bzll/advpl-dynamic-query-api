@@ -31,4 +31,12 @@ curl --request GET \
 #### Resposta
 ![Resposta](https://i.ibb.co/YPS2kfr/response.png)
 
+#### Observação
+Para campos do tipo *MEMO* é necessário a realização do [CAST (Doc. Microsoft SQL)](https://docs.microsoft.com/pt-br/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver15) dentro do **body JSON**, exemplo:
+```JSON
+{
+  "query": "SELECT CAST(CAST(CAMPO_MEMO AS VARBINARY(8000)) AS VARCHAR(8000)) FROM TABLE"
+}
+```
+
 Então é isso! =)
