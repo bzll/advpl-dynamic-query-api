@@ -1,6 +1,6 @@
 ## Método API para Queries dinâmicas
 
-Quando houver a necessidade de integração entre duas plataformas e houver muitas requisições de dados, não faz sentido criar um método GET para cada estrura requerida, a não ser que a mesma tenha alguma especificidade, sendo assim, para consultas genéricas, resolvi criar uma API dinânimca
+Quando houver a necessidade de integração entre duas plataformas e houver muitas requisições de dados, não faz sentido criar um método **GET** para cada estrutura requerida, a não ser que a mesma tenha alguma especificidade, sendo assim, para consultas genéricas, resolvi criar uma API dinânimca
 
 ### Pré-requisitos
 
