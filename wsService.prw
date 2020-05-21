@@ -34,7 +34,7 @@ Método GET para execução da Query
 WsMethod Get WsService restQuery
 	Local	oResponse		:= JSONObject():New()
 	Local	cJson			:= ::GetContent()
-	Local	nX				:= 0
+	Local	nX			:= 0
 	Private	oParser			:= nil
 	
 	::SetContentType('application/json')
@@ -72,7 +72,7 @@ Função responsável em validar o Schema do Body
 //-------------------------------------------------------------------
 Static Function FwSchJSON(oResponse)
 	Local	lRet	:= 	.T.
-	Local	nX		:= 	0
+	Local	nX	:= 	0
 	Local	aErrors	:= 	{}
 
 	If Type("oParser:query") <> "U"
@@ -90,8 +90,8 @@ Static Function FwSchJSON(oResponse)
 		oResponse['errors']	:=	{}
 		For nX := 1 to len(aErrors)
 			aAdd(oResponse['errors'], JSONObject():New())
-			oResponse['errors'][nX]['id']			:= aErrors[nX,1]
-			oResponse['errors'][nX]['field']		:= aErrors[nX,2]
+			oResponse['errors'][nX]['id']		:= aErrors[nX,1]
+			oResponse['errors'][nX]['field']	:= aErrors[nX,2]
 			oResponse['errors'][nX]['description']	:= aErrors[nX,3]
 		Next nX
 	EndIf
@@ -107,21 +107,21 @@ Função responsável em realizar a execução da Query
 //-------------------------------------------------------------------
 Static Function FWExecQuery(oResponse,aQueryString)
 
-	Local	cQuery			:= oParser:query
-	Local	cAlias			:= GetNextAlias()
-	Local	nCount			:= 0
-	Local	aArea			:= GetArea()
-	Local	cError			:= ""
-	Local	bError			:= ErrorBlock({|oError| cError	:= oError:Description})
-	Local	lRet			:= .t.
-	Local	aStruct			:= {}
-	Local	nX				:= 0
-	Local	nRecord			:= 0
-	Local 	nRows			:= GetNewPar('CN_QRLMROWS',2000)	// Controla a qtde de linhas impressas no response
-	Local 	nColumns		:= GetNewPar('CN_QRLMCOLS',40)		// Controla a qtde de colunas impressas no response
-	Local	lMaskDate		:= GetNewPar('CN_QRMASK',.F.)		// Controla se tipo Date usará a máscara yyyy-MM-dd
-	Local	nPosAux			:= 0
-	Local	cExpression		:= ""
+	Local	cQuery		:= oParser:query
+	Local	cAlias		:= GetNextAlias()
+	Local	nCount		:= 0
+	Local	aArea		:= GetArea()
+	Local	cError		:= ""
+	Local	bError		:= ErrorBlock({|oError| cError	:= oError:Description})
+	Local	lRet		:= .t.
+	Local	aStruct		:= {}
+	Local	nX		:= 0
+	Local	nRecord		:= 0
+	Local 	nRows		:= GetNewPar('CN_QRLMROWS',2000)	// Controla a qtde de linhas impressas no response
+	Local 	nColumns	:= GetNewPar('CN_QRLMCOLS',40)		// Controla a qtde de colunas impressas no response
+	Local	lMaskDate	:= GetNewPar('CN_QRMASK',.F.)		// Controla se tipo Date usará a máscara yyyy-MM-dd
+	Local	nPosAux		:= 0
+	Local	cExpression	:= ""
 	Default	aQueryString	:= {}
 
 	// Por se tratar de REST, caso dê algum problema retornará Internal Error, então, garanto mais detalhes 
@@ -209,9 +209,9 @@ Static Function FWExecQuery(oResponse,aQueryString)
 	ErrorBlock(bError)
 	If ! Empty(cError)
 		oResponse['message']	:= "Fail to execute the query"
-		oResponse['errors']		:= {}
+		oResponse['errors']	:= {}
 		aAdd(oResponse['errors'], JSONObject():New())
-		oResponse['errors'][1]['id']			:= 0
+		oResponse['errors'][1]['id']		:= 0
 		oResponse['errors'][1]['description']	:= cError
 		lRet	:= .F.
 	EndIf
@@ -232,7 +232,7 @@ Ou outro parâmetro do tipo Char
 //-------------------------------------------------------------------
 Static Function FWFormatDate(dDate,cDate)
 
-	Local cRet		:= ""
+	Local cRet	:= ""
 	Default	dDate	:= CToD("  /  /    ")
 	Default cDate	:= ""
 
@@ -256,7 +256,7 @@ Função responsável para validar se um texto pode ser uma data válida
 Static Function FWVldDate(cDate)
 
 	Local	lRet	:= .T.
-	Local	nX		:= 1
+	Local	nX	:= 1
 	Local	cError	:= ""
 	Local	xDate	:= nil
 	Local	bError	:= ErrorBlock({|oError| cError	:= oError:Description})	// Trativa Try/Catch
