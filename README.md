@@ -39,4 +39,10 @@ Para campos do tipo *MEMO* é necessário a realização do [CAST (Doc. Microsof
 }
 ```
 
+### Licença
+
+Distribuído sobre a licença [MIT](LICENSE)
+
+
+
 Então é isso! =)
